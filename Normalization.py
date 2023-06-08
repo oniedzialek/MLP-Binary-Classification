@@ -2,7 +2,7 @@ import hickle as hkl
 import numpy as np
 import matplotlib.pyplot as plt
 
-filename = "E:\\Studia\\AI\\ProjektAI\\moje skrypty\\agaricus-lepiota-w-liczbach-posortowane-wg-cechy.data"
+filename = "agaricus-lepiota-in-numbers.data"
 data = np.loadtxt(filename, delimiter=',', dtype=str)
 
 x = data[:,1:].astype(float).T
@@ -35,5 +35,5 @@ for i in range(x.shape[1]):
     y_t_s[0,i] = y_t[0,y_t_s_ind[0,i]]
     x_n_s[:,i] = x_norm[:,y_t_s_ind[0,i]]
 plt.plot(y_t_s[0])
-hkl.dump([x,y_t,x_norm],'agaricus-lepiota-po-normalizacji.hkl')
+hkl.dump([x,y_t,x_norm],'agaricus-lepiota-normalized.hkl')
 # x,y_t,x_norm,x_n_s,y_t_s = hkl.load('zoo.hkl')

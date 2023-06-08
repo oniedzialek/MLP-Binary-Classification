@@ -28,8 +28,8 @@ class mlp_3w:
         self.w1, self.b1 = net.nwtan(self.K1, self.L)
         self.w2, self.b2 = net.nwtan(self.K2, self.K1)
         self.w3, self.b3 = net.rands(self.K3, self.K2)
-        hkl.dump([self.w1, self.b1, self.w2, self.b2, self.w3, self.b3], 'wagi3w.hkl')
-        self.w1, self.b1, self.w2, self.b2, self.w3, self.b3 = hkl.load('wagi3w.hkl')
+        hkl.dump([self.w1, self.b1, self.w2, self.b2, self.w3, self.b3], 'weights3l.hkl')
+        self.w1, self.b1, self.w2, self.b2, self.w3, self.b3 = hkl.load('weights3l.hkl')
         self.SSE = 0
         self.lr_vec = list()
 
@@ -124,7 +124,7 @@ class mlp_3w:
 
 #   zaladowanie przygotowanych danych
 
-x, y_t, x_norm = hkl.load("agaricus-lepiota-po-normalizacji-2.hkl")
+x, y_t, x_norm = hkl.load("agaricus-lepiota-normalized-2.hkl")
 
 plt.ion()
 plt.switch_backend('Qt5Agg')
@@ -198,7 +198,7 @@ plt.plot(np.log10(lr_vec), PK_2D_lr)
 plt.savefig("Fig.2_lr_PK_mushroom.png", bbox_inches='tight')
 plt.show(block=True)
 
-print("OPTYMALNE WARTOŚCI: K1={} | K2={} | lr={} | PK={}". \
+print("Optimal metaparameters: K1={} | K2={} | lr={} | PK={}". \
       format(K1_vec[k1_ind_max], K2_vec[k2_ind_max], lr_vec[lr_ind_max], \
              PK_2D_lr[lr_ind_max]))
 print("Execution time:", timer() - start)

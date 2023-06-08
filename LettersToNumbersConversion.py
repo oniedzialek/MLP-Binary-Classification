@@ -6,10 +6,10 @@ legend = {
     'v': 21, 'w': 22, 'x': 23, 'y': 24, 'z': 25
 }
 
-with open("E:\\Studia\\AI\\ProjektAI\\moje skrypty\\agaricus-lepiota-po-usunieciu-pyta.data", 'r') as filein:
+with open("agaricus-lepiota-po-usunieciu-pyta.data", 'r') as filein:
     data = filein.readlines()
 
-with open("E:\\Studia\\AI\\ProjektAI\\moje skrypty\\agaricus-lepiota-w-liczbach.data", 'w') as fileout:
+with open("agaricus-lepiota-w-liczbach.data", 'w') as fileout:
     for line in data:
         line_numbers = [str(legend.get(c.lower())) for c in line if c.isalpha()]
         numbers = ','.join(line_numbers)
